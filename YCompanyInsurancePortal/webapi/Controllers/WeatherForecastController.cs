@@ -48,8 +48,6 @@ public class WeatherForecastController : ControllerBase
                 await Console.Out.WriteLineAsync(tokenResponse.Error);
                 return Enumerable.Empty<WeatherForecast>();
             }
-
-
         }
 
         using (var client = new HttpClient())

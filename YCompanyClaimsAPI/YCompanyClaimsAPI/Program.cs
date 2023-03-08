@@ -20,7 +20,7 @@ builder.Services.AddAuthentication("Bearer")
 
 /**
  * without this, api will accept any token provided by the authentication server.
- * add an Authorization Policy to the API that will check for the presence of the “api1” scope in the access token. 
+ * add an Authorization Policy to the API that will check for the presence of the “ClaimsAPI” scope in the access token. 
  * 
  */
 

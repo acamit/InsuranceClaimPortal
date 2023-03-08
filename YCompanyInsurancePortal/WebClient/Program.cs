@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication;
 using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +26,10 @@ builder.Services.AddAuthentication(options =>
         options.Scope.Add("openid");
         options.Scope.Add("profile");
         options.Scope.Add("scope2");
+        options.Scope.Add("offline_access");
+        options.Scope.Add("ClaimsAPI");
+        options.GetClaimsFromUserInfoEndpoint = true;
+        options.ClaimActions.MapUniqueJsonKey("favorite_color", "favorite_color");
 
         options.GetClaimsFromUserInfoEndpoint = true;
         options.SaveTokens = true;

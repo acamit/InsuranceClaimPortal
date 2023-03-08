@@ -1,4 +1,5 @@
 ﻿using Duende.IdentityServer.Models;
+using static Duende.IdentityServer.IdentityServerConstants;
 
 namespace YCompanyIdentityServer;
 
@@ -45,6 +46,7 @@ public static class Config
                 ClientSecrets =
                 {
                     new Secret("secret".Sha256())
+
                 },
                 AllowedScopes = { "openid", "ClaimsAPI" }  // allow acess to above created claims.
             },
@@ -62,8 +64,28 @@ public static class Config
                 PostLogoutRedirectUris = { "https://localhost:7025/signout-callback-oidc" },
 
                 AllowOfflineAccess = true,
-                AllowedScopes = { "openid", "profile", "scope2" }
+                AllowedScopes = new List<string>{ StandardScopes.OpenId, StandardScopes.Profile, "scope2", "ClaimsAPI" }
             },
-            
+            new Client
+            {
+                ClientId = "bff",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+
+                AllowedGrantTypes = GrantTypes.Code,
+    
+                // where to redirect to after login
+                RedirectUris = { "https://localhost:7196/signin-oidc" },
+
+                // where to redirect to after logout
+                PostLogoutRedirectUris = { "https://localhost:7196/signout-callback-oidc" },
+
+                AllowedScopes = new List<string>
+                {
+                    StandardScopes.OpenId,
+                    StandardScopes.Profile,
+                    "ClaimsAPI"
+                }
+            }
+
         };
 }
