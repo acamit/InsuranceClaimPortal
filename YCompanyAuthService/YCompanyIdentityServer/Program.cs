@@ -3,7 +3,6 @@ using Duende.IdentityServer.EntityFramework.Mappers;
 using Duende.IdentityServer.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Net;
 using System.Reflection;
 using YCompanyIdentityServer.Data;
 using YCompanyIdentityServer.Factories;
@@ -146,6 +145,7 @@ if (app.Environment.IsDevelopment())
 
         /*
          * Identity Resources.
+         * 
          */
         if (!await configurationDbContext.IdentityResources.AnyAsync())
         {

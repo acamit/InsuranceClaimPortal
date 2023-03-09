@@ -30,4 +30,6 @@ namespace YCompanyIdentityServer.Factories
             }
             return claimsIdentity;
         }
-  
+    }
+}
+
