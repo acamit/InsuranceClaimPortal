@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using YCompanyIdentityServer;
 using YCompanyIdentityServer.Data;
 using YCompanyIdentityServer.Factories;
 using YCompanyIdentityServer.Models;
@@ -11,10 +12,10 @@ builder.Services.AddDbContext<ApplicationDbContext>((serviceProvider, dbContextO
 {
     dbContextOptionsBuilder
         .UseSqlServer(serviceProvider.GetRequiredService<IConfiguration>().GetConnectionString("DefaultConnection")
-        , sqlServerdbContextOptionsBuilder =>
-        {
-            sqlServerdbContextOptionsBuilder.MigrationsAssembly(typeof(Program).GetTypeInfo().Assembly.GetName().Name);
-        }
+            , sqlServerdbContextOptionsBuilder =>
+            {
+                sqlServerdbContextOptionsBuilder.MigrationsAssembly(typeof(Program).GetTypeInfo().Assembly.GetName().Name);
+            }
         );
 });
 
@@ -35,15 +36,10 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
  */
 builder.Services.AddIdentityServer()
     .AddAspNetIdentity<ApplicationUser>()
-    .AddInMemoryApiResources(DevelopmentSeedData.ApiResources)
-    .AddInMemoryApiScopes(DevelopmentSeedData.ApiScopes)
-    .AddInMemoryClients(DevelopmentSeedData.Clients)
-    .AddInMemoryIdentityResources(DevelopmentSeedData.IdentityResources);
-
-/*
- * 
- * Uncomment this for db access.
- * 
+    //.AddInMemoryApiResources(DevelopmentSeedData.ApiResources)
+    //.AddInMemoryApiScopes(DevelopmentSeedData.ApiScopes)
+    //.AddInMemoryClients(DevelopmentSeedData.Clients)
+    //.AddInMemoryIdentityResources(DevelopmentSeedData.IdentityResources);
     .AddConfigurationStore(configurationStoreoptions =>
     {
         configurationStoreoptions.ResolveDbContextOptions = ResolveDbContextOptions;
@@ -53,7 +49,6 @@ builder.Services.AddIdentityServer()
         operationalStoreOptions.ResolveDbContextOptions = ResolveDbContextOptions;
     }); // keys, token, dates etc
 
-*/
 
 builder.Services.AddRazorPages();
 
@@ -75,7 +70,7 @@ app.MapRazorPages();
 
 if (app.Environment.IsDevelopment())
 {
-    //await SeedData.EnsureSeedData(app);
+    await SeedData.EnsureSeedData(app);
 }
 
 app.Run();
@@ -86,9 +81,9 @@ void ResolveDbContextOptions(IServiceProvider serviceProvider, DbContextOptionsB
 {
     dbContextOptionsBuilder
         .UseSqlServer(serviceProvider.GetRequiredService<IConfiguration>().GetConnectionString("IdentityServer")
-                //, sqlServerdbContextOptionsBuilder =>
-                //{
-                //    sqlServerdbContextOptionsBuilder.MigrationsAssembly(typeof(Program).GetTypeInfo().Assembly.GetName().Name);
-                //}
-                ); // a sepearate db for identity server db
+                , sqlServerdbContextOptionsBuilder =>
+                {
+                    sqlServerdbContextOptionsBuilder.MigrationsAssembly(typeof(Program).GetTypeInfo().Assembly.GetName().Name);
+                }
+        ); // a sepearate db for identity server db
 }
