@@ -5,15 +5,13 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyClaimsAPI", "..\YCompanyClaimsAPI\YCompanyClaimsAPI\YCompanyClaimsAPI.csproj", "{71F95DC5-350D-4735-9239-E974E3ECEB83}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webapi", "..\YCompanyInsurancePortal\webapi\webapi.csproj", "{6A751165-B6DB-42CE-8947-6C9598FBCA07}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyWebApp", "..\YCompanyInsurancePortal\YCompanyWebApp\YCompanyWebApp.csproj", "{B41391D0-C280-4F3B-B8C0-39888C7AAECF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyIdentityServer", "..\YCompanyAuthService\YCompanyIdentityServer\YCompanyIdentityServer.csproj", "{5ACD7EF1-03D4-4CCF-A9C1-3721F6151D2E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyPaymentsAPI", "..\YCompanyPaymentsAPI\YCompanyPaymentsAPI\YCompanyPaymentsAPI.csproj", "{F8BEB405-97ED-472E-A686-E9A4C3FC43E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YCompanyWebApplication", "..\YCompanyWebApplication\YCompanyWebApplication.csproj", "{9045F6A4-6D08-4A55-9C1E-CDA9D913FD25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyWebApplication", "..\YCompanyWebApplication\YCompanyWebApplication.csproj", "{9045F6A4-6D08-4A55-9C1E-CDA9D913FD25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{71F95DC5-350D-4735-9239-E974E3ECEB83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71F95DC5-350D-4735-9239-E974E3ECEB83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71F95DC5-350D-4735-9239-E974E3ECEB83}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6A751165-B6DB-42CE-8947-6C9598FBCA07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A751165-B6DB-42CE-8947-6C9598FBCA07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A751165-B6DB-42CE-8947-6C9598FBCA07}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A751165-B6DB-42CE-8947-6C9598FBCA07}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B41391D0-C280-4F3B-B8C0-39888C7AAECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B41391D0-C280-4F3B-B8C0-39888C7AAECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B41391D0-C280-4F3B-B8C0-39888C7AAECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
