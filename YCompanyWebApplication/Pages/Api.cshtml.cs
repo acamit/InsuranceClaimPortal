@@ -21,12 +21,11 @@ namespace YCompanyWebApplication.Pages
         }
         public async Task OnGet()
         {
-            using var httpClient = HttpClientFactory.CreateClient();
+            using var httpClient = HttpClientFactory.CreateClient("PaymentsAPI");
 
             // get the access token from the cookie and add it to the default request headers. the save token = true is helpful here as we have the token
             httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", await HttpContext.GetTokenAsync("access_token"));
-            var url = $"{_configuration["API:PaymentAPI"]}/GetWeatherForecast";
-            Data = await httpClient.GetStringAsync(url);
+            Data = await httpClient.GetStringAsync("/WeatherForecast");
 
         }
     }

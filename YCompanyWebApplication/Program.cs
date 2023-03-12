@@ -3,6 +3,11 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHttpClient("PaymentsAPI", httpClient =>
+{
+    httpClient.BaseAddress = new Uri(builder.Configuration["API:PaymentAPI"]);
+});
+
 builder.Services.AddAuthentication(authenticationOptions =>
 {
     authenticationOptions.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
