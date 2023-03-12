@@ -9,7 +9,7 @@ namespace YCompanyIdentityServer.Data
     {
         public static ApplicationUser DefaultUser = new ApplicationUser
         {
-            UserName = "amit.chawla",
+            UserName = "amitchawla",
             Email = "acamit84@gmail.com",
             GivenName = "Amit",
             FamilyName = "Chawla"
@@ -18,6 +18,10 @@ namespace YCompanyIdentityServer.Data
         public static string DefaultPassword = "Pa55w0rd!";
 
 
+        /*
+         * API Resources
+         *
+         */
         public static ApiResource ApiResource = new ApiResource
         {
             Name = Guid.NewGuid().ToString(),
@@ -26,43 +30,68 @@ namespace YCompanyIdentityServer.Data
                 {
                     "https://ycompany.com/api"
                 }
+        };
 
+        public static ApiResource PaymentsAPIResource = new ApiResource
+        {
+            Name = "PaymentAPIGuid",//Guid.NewGuid().ToString(),
+            DisplayName = "Payments API",
+            Scopes = new List<string>()
+                {
+                    "https://ycompany.com/payments"
+                }
         };
 
         public static List<ApiResource> ApiResources = new List<ApiResource>
         {
-            ApiResource
+            ApiResource,
+            PaymentsAPIResource
         };
 
+
+        /*
+         * API Scopes
+         *
+         */
         public static ApiScope ApiScope = new ApiScope()
         {
             Name = "https://ycompany.com/api", // same as above
             DisplayName = "API",
         };
 
-        public static List<ApiScope> ApiScopes = new List<ApiScope>() { ApiScope };
+        public static ApiScope PaymentsAPIScope = new ApiScope()
+        {
+            Name = "https://ycompany.com/payments", // same as above
+            DisplayName = "Payments API",
+        };
 
+        public static List<ApiScope> ApiScopes = new List<ApiScope>() { ApiScope, PaymentsAPIScope };
 
-
+        /*
+        * Clients
+        *
+        */
         public static List<Client> Clients = new List<Client> { new Client()
             {
-                ClientId = Guid.NewGuid().ToString(),
+                ClientId = "ConsoleApplicationsGuid",//Guid.NewGuid().ToString(),
                 ClientSecrets = new List<Secret> { new Secret("secret".Sha512()) },
+                //ClientSecrets = new List<Secret> { new Secret("secret") },
                 ClientName = "Console Applications",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
-                AllowedScopes = new List<string>() { "https://ycompany.com/api" },
-                AllowedCorsOrigins = new List<string>() { "https://api:7001" } // api url
+                AllowedScopes = new List<string>() { "https://ycompany.com/payments" },
+                AllowedCorsOrigins = new List<string>() { "https://localhost:7001" } // api url
             },
 
             new Client()
             {
-                ClientId = Guid.NewGuid().ToString(),
+                ClientId = "WebApp",
+                //ClientId = Guid.NewGuid().ToString(),
                 ClientSecrets = new List<Secret> { new Secret("secret".Sha512()) },
                 ClientName = "Web Applications",
                 AllowedGrantTypes = GrantTypes.Code,
-                AllowedScopes = new List<string>() { "https://ycompany.com/api", "openid", "profile", "email", "https://ycompany.com/api" },
-                RedirectUris = new List<string> { "https://webapplication:7002/signin-oidc" },
-                PostLogoutRedirectUris = new List<string> { "https://webapplication:7002/signout-callback-oidc" }
+                AllowedScopes = new List<string>() { "https://ycompany.com/api", "openid", "profile", "email", "https://ycompany.com/payments" },
+                RedirectUris = new List<string> { "https://localhost:7002/signin-oidc" },
+                PostLogoutRedirectUris = new List<string> { "https://localhost:7002/signout-callback-oidc" }
             },
 
             new Client()
@@ -71,15 +100,19 @@ namespace YCompanyIdentityServer.Data
                 RequireClientSecret = false, // no client secret for public SPA
                 ClientName = "Single Page Applications",
                 AllowedGrantTypes = GrantTypes.Code,
-                AllowedScopes = new List<string>() { "https://ycompany.com/api", "openid", "profile", "email", "https://ycompany.com/api" },
-                RedirectUris = new List<string> { "https://singlepageapplication:7003/authentication/login-callback" },
-                PostLogoutRedirectUris = new List<string> { "https://singlepageapplication:7003/authentication/logout-callback" },
-                AllowedCorsOrigins = new List<string>() { "https://singlepageapplication:7003" }
+                AllowedScopes = new List<string>() { "https://ycompany.com/api", "openid", "profile", "email", "https://ycompany.com/payments" },
+                RedirectUris = new List<string> { "https://localhost:7003/authentication/login-callback" },
+                PostLogoutRedirectUris = new List<string> { "https://localhost:7003/authentication/logout-callback" },
+                AllowedCorsOrigins = new List<string>() { "https://localhost:7003" }
             }
         };
 
         public static List<DuendeEntities.Client> ClientEntities = Clients.Select(x => x.ToEntity()).ToList();
 
+        /*
+         * Identity Resources
+         *
+         */
         public static List<IdentityResource> IdentityResources = new List<IdentityResource>
         {
             new IdentityResources.OpenId(),

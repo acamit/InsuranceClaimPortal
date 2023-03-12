@@ -17,7 +17,7 @@ public class SeedData
         await scope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.MigrateAsync();
 
         var userManger = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-        if (await userManger.FindByNameAsync("amit.chawla") == null)
+        if (await userManger.FindByNameAsync("amitchawla") == null)
         {
             await userManger.CreateAsync(DevelopmentSeedData.DefaultUser, DevelopmentSeedData.DefaultPassword);
         }

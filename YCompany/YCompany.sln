@@ -5,8 +5,6 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyClaimsAPI", "..\YCompanyClaimsAPI\YCompanyClaimsAPI\YCompanyClaimsAPI.csproj", "{71F95DC5-350D-4735-9239-E974E3ECEB83}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebClient", "..\YCompanyInsurancePortal\WebClient\WebClient.csproj", "{D44BE0EF-FB6C-4598-9489-B63189D97032}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webapi", "..\YCompanyInsurancePortal\webapi\webapi.csproj", "{6A751165-B6DB-42CE-8947-6C9598FBCA07}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "angularapp", "..\YCompanyInsurancePortal\angularapp\angularapp.esproj", "{F8B1324C-6567-4DE4-99A5-12E3F214C643}"
@@ -14,6 +12,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyWebApp", "..\YCompanyInsurancePortal\YCompanyWebApp\YCompanyWebApp.csproj", "{B41391D0-C280-4F3B-B8C0-39888C7AAECF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyIdentityServer", "..\YCompanyAuthService\YCompanyIdentityServer\YCompanyIdentityServer.csproj", "{5ACD7EF1-03D4-4CCF-A9C1-3721F6151D2E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyPaymentsAPI", "..\YCompanyPaymentsAPI\YCompanyPaymentsAPI\YCompanyPaymentsAPI.csproj", "{F8BEB405-97ED-472E-A686-E9A4C3FC43E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YCompanyWebApplication", "..\YCompanyWebApplication\YCompanyWebApplication.csproj", "{9045F6A4-6D08-4A55-9C1E-CDA9D913FD25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +27,6 @@ Global
 		{71F95DC5-350D-4735-9239-E974E3ECEB83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71F95DC5-350D-4735-9239-E974E3ECEB83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71F95DC5-350D-4735-9239-E974E3ECEB83}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D44BE0EF-FB6C-4598-9489-B63189D97032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D44BE0EF-FB6C-4598-9489-B63189D97032}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D44BE0EF-FB6C-4598-9489-B63189D97032}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D44BE0EF-FB6C-4598-9489-B63189D97032}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A751165-B6DB-42CE-8947-6C9598FBCA07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A751165-B6DB-42CE-8947-6C9598FBCA07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A751165-B6DB-42CE-8947-6C9598FBCA07}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +45,14 @@ Global
 		{5ACD7EF1-03D4-4CCF-A9C1-3721F6151D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ACD7EF1-03D4-4CCF-A9C1-3721F6151D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ACD7EF1-03D4-4CCF-A9C1-3721F6151D2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8BEB405-97ED-472E-A686-E9A4C3FC43E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8BEB405-97ED-472E-A686-E9A4C3FC43E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8BEB405-97ED-472E-A686-E9A4C3FC43E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8BEB405-97ED-472E-A686-E9A4C3FC43E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9045F6A4-6D08-4A55-9C1E-CDA9D913FD25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9045F6A4-6D08-4A55-9C1E-CDA9D913FD25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9045F6A4-6D08-4A55-9C1E-CDA9D913FD25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9045F6A4-6D08-4A55-9C1E-CDA9D913FD25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

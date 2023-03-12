@@ -21,7 +21,8 @@ builder.Services.AddDbContext<ApplicationDbContext>((serviceProvider, dbContextO
 
 /*
  * Register asp.net core identity. 
- * */
+ * 
+ */
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddClaimsPrincipalFactory<ApplicationUserClaimsPrincipalFactory>()
     .AddDefaultTokenProviders()
@@ -30,6 +31,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 
 /*
  * Register Identity Server for production
+ * 
  */
 builder.Services.AddIdentityServer()
     .AddAspNetIdentity<ApplicationUser>()
