@@ -29,7 +29,7 @@ public class SeedData
          */
         if (!await configurationDbContext.ApiResources.AnyAsync())
         {
-            await configurationDbContext.ApiResources.AddAsync(DevelopmentSeedData.ApiResource.ToEntity());
+            await configurationDbContext.ApiResources.AddRangeAsync(DevelopmentSeedData.ApiResources.Select(x => x.ToEntity()).ToList());
             await configurationDbContext.SaveChangesAsync();
         }
 
@@ -39,7 +39,7 @@ public class SeedData
          */
         if (!await configurationDbContext.ApiScopes.AnyAsync())
         {
-            await configurationDbContext.ApiScopes.AddAsync(DevelopmentSeedData.ApiScope.ToEntity());
+            await configurationDbContext.ApiScopes.AddRangeAsync(DevelopmentSeedData.ApiScopes.Select(c => c.ToEntity()).ToList());
 
             await configurationDbContext.SaveChangesAsync();
         }
