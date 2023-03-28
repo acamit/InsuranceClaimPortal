@@ -49,3 +49,4 @@ InsuranceClaimPortal/*
 
 obj/
 bin/
+/YCompanyInsurancePortal/angularapp/node_modules/karma/node_modules/yargs/lib/platform-shims
