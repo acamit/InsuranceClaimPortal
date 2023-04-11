@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyPaymentsAPI", "..\Y
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyWebApplication", "..\YCompanyWebApplication\YCompanyWebApplication.csproj", "{9045F6A4-6D08-4A55-9C1E-CDA9D913FD25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YCompanyThirdPartyAPI", "..\YCompanyThirdPartyAPI\YCompanyThirdPartyAPI.csproj", "{8DB7D5FF-56C3-412B-8338-DE77287BC1EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9045F6A4-6D08-4A55-9C1E-CDA9D913FD25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9045F6A4-6D08-4A55-9C1E-CDA9D913FD25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9045F6A4-6D08-4A55-9C1E-CDA9D913FD25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DB7D5FF-56C3-412B-8338-DE77287BC1EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DB7D5FF-56C3-412B-8338-DE77287BC1EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DB7D5FF-56C3-412B-8338-DE77287BC1EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DB7D5FF-56C3-412B-8338-DE77287BC1EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
