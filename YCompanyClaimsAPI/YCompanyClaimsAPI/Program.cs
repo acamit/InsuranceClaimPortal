@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using YCompanyClaimsAPI.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +40,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddHealthChecks().AddCheck<StorageHealthChecks>("Storage");
+builder.Services.AddHealthChecks().AddCheck<QueueHealthChecks>("Queue");
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -49,6 +53,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseHealthChecks("/health");
 app.UseAuthentication();
 
 app.UseAuthorization();

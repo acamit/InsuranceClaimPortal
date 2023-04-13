@@ -13,6 +13,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyPaymentsAPI", "..\Y
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyWebApplication", "..\YCompanyWebApplication\YCompanyWebApplication.csproj", "{9045F6A4-6D08-4A55-9C1E-CDA9D913FD25}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClaimsAPI", "ClaimsAPI", "{7A25DFA6-B51C-4AB5-B676-2CFD009F5C5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{71E4BC75-8C8C-4009-AEA3-791C93AE22B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PaymentsAPI", "PaymentsAPI", "{31D4E316-B313-470F-8829-5AB336D0817B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApplication", "WebApplication", "{54BA8B84-C5DA-4841-AAFC-99A5E69441F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +50,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{71F95DC5-350D-4735-9239-E974E3ECEB83} = {7A25DFA6-B51C-4AB5-B676-2CFD009F5C5D}
+		{B41391D0-C280-4F3B-B8C0-39888C7AAECF} = {54BA8B84-C5DA-4841-AAFC-99A5E69441F4}
+		{5ACD7EF1-03D4-4CCF-A9C1-3721F6151D2E} = {71E4BC75-8C8C-4009-AEA3-791C93AE22B0}
+		{F8BEB405-97ED-472E-A686-E9A4C3FC43E1} = {31D4E316-B313-470F-8829-5AB336D0817B}
+		{9045F6A4-6D08-4A55-9C1E-CDA9D913FD25} = {54BA8B84-C5DA-4841-AAFC-99A5E69441F4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A7F43644-7FC7-4EDB-9631-E5784A786800}
