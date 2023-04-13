@@ -13,8 +13,8 @@ namespace YCompanyClaimsAPI.HealthChecks
         }
         public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
         {
-            var isStorageOk = await _messageBroker.CheckHealthAsync();
-            return isStorageOk ? HealthCheckResult.Healthy() : HealthCheckResult.Unhealthy();
+            var isMessageBrokerOk = await _messageBroker.CheckHealthAsync();
+            return isMessageBrokerOk ? HealthCheckResult.Healthy() : HealthCheckResult.Unhealthy();
         }
     }
 }
