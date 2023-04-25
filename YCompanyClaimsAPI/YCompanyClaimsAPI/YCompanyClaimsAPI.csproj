@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -12,7 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\YCompany.Claims.DataAccess\YCompany.Claims.DataAccess.csproj" />
     <ProjectReference Include="..\YCompany.Claims.Domain\YCompany.Claims.Domain.csproj" />
+    <ProjectReference Include="..\YCompany.Claims.ExceptionHandling\YCompany.Claims.ExceptionHandling.csproj" />
   </ItemGroup>
 
 </Project>

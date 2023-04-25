@@ -2,7 +2,11 @@
 
 namespace YCompany.Claims.Logging
 {
-    internal class OpenSearchLogService : ILogService
+    public class OpenSearchLogService : ILogService
     {
+        public OpenSearchLogService()
+        {
+
+        }
     }
 }

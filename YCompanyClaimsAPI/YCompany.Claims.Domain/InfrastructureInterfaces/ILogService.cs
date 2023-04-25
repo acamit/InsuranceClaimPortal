@@ -2,5 +2,6 @@
 {
     public interface ILogService
     {
+        // tracing - add trace id
     }
 }

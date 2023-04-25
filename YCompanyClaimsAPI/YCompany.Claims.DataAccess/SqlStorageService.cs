@@ -2,7 +2,7 @@
 
 namespace YCompany.Claims.DataAccess
 {
-    internal class SqlStorageService : IClaimsStorageService
+    public class SqlStorageService : IClaimsStorageService
     {
         public Task<bool> CheckHealthAsync()
         {
