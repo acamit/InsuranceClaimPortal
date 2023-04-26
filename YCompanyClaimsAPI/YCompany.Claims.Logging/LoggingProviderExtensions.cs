@@ -5,23 +5,23 @@ using Microsoft.Extensions.Logging.Configuration;
 
 namespace YCompany.Claims.Logging
 {
-    public static class YCompanyLoggingProviderExtensions
+    public static class LoggingProviderExtensions
     {
         public static ILoggingBuilder AddYCompanyLogger(this ILoggingBuilder builder)
         {
             builder.AddConfiguration();
 
             builder.Services.TryAddEnumerable(
-                ServiceDescriptor.Singleton<ILoggerProvider, YCompanyLoggingProvider>());
+                ServiceDescriptor.Singleton<ILoggerProvider, LoggingProvider>());
 
-            LoggerProviderOptions.RegisterProviderOptions<YCompanyLoggingProviderConfiguration, YCompanyLoggingProvider>(builder.Services);
+            LoggerProviderOptions.RegisterProviderOptions<LogingProviderConfiguration, LoggingProvider>(builder.Services);
 
             return builder;
         }
 
         public static ILoggingBuilder AddYCompanyLogger
             (this ILoggingBuilder builder,
-            Action<YCompanyLoggingProviderConfiguration> configuration)
+            Action<LogingProviderConfiguration> configuration)
         {
             builder.AddYCompanyLogger();
             builder.Services.Configure(configuration);

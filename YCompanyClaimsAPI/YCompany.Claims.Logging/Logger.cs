@@ -2,12 +2,12 @@
 
 namespace YCompany.Claims.Logging
 {
-    public class YCompanyLogger : ILogger
+    public class Logger : ILogger
     {
         private string categoryName;
-        private Func<YCompanyLoggingProviderConfiguration> getCurrentConfig;
+        private Func<LogingProviderConfiguration> getCurrentConfig;
 
-        public YCompanyLogger(string categoryName, Func<YCompanyLoggingProviderConfiguration> getCurrentConfig)
+        public Logger(string categoryName, Func<LogingProviderConfiguration> getCurrentConfig)
         {
             this.categoryName = categoryName;
             this.getCurrentConfig = getCurrentConfig;

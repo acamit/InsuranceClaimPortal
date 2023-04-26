@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.ConfigureLogging(logging =>
 {
     logging.ClearProviders();
-    
+
     logging.AddYCompanyLogger();
 
     logging.AddColorConsoleLogger(configuration =>
