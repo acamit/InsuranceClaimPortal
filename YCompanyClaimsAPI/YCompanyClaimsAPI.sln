@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompany.Claims.MessagingQu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{1B646875-B339-4E98-AFBB-A0BF88C55515}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YCompany.Claims.ExceptionHandling", "YCompany.Claims.ExceptionHandling\YCompany.Claims.ExceptionHandling.csproj", "{212FEA8B-56EE-4ECF-BA75-E8EB936B275D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompany.Claims.ExceptionHandling", "YCompany.Claims.ExceptionHandling\YCompany.Claims.ExceptionHandling.csproj", "{212FEA8B-56EE-4ECF-BA75-E8EB936B275D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

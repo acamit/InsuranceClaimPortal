@@ -1,19 +1,27 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Logging.Console;
 using Microsoft.IdentityModel.Tokens;
 using YCompany.Claims.DataAccess;
 using YCompany.Claims.Domain.InfrastructureInterfaces;
 using YCompany.Claims.ExceptionHandling;
+using YCompany.Claims.Logging;
+using YCompanyClaimsAPI;
 using YCompanyClaimsAPI.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Logging.ClearProviders();
-builder.Logging.AddFilter<ConsoleLoggerProvider>("", LogLevel.Trace);
 builder.Host.ConfigureLogging(logging =>
 {
     logging.ClearProviders();
+    
+    logging.AddYCompanyLogger();
 
+    logging.AddColorConsoleLogger(configuration =>
+    {
+        // Replace warning value from appsettings.json of "Cyan"
+        configuration.LogLevelToColorMap[LogLevel.Warning] = ConsoleColor.DarkCyan;
+        // Replace warning value from appsettings.json of "Red"
+        configuration.LogLevelToColorMap[LogLevel.Error] = ConsoleColor.DarkRed;
+    });
 });
 
 // Add services to the container.
