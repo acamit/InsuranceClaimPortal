@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YCompany.Claims.Logging
 {
-    public class AppLogEvents
+    public static class AppLogEvents
     {
 		public EventId Create = new(1000, "Created");
 		public EventId Read = new(1001, "Read");
