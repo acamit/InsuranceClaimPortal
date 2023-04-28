@@ -3,9 +3,14 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddHttpClient("PaymentsAPI", httpClient =>
+/*builder.Services.AddHttpClient("PaymentsAPI", httpClient =>
 {
     httpClient.BaseAddress = new Uri(builder.Configuration["API:PaymentAPI"]);
+});
+*/
+builder.Services.AddHttpClient("ThirdPartyAPI", httpClient =>
+{
+    httpClient.BaseAddress = new Uri(builder.Configuration["API:ThirdPartyAPI"]);
 });
 
 builder.Services.AddAuthentication(authenticationOptions =>
@@ -22,7 +27,7 @@ builder.Services.AddAuthentication(authenticationOptions =>
     openIdConnectOptions.ClientSecret = builder.Configuration["Authentication:ClientSecret"];
     openIdConnectOptions.GetClaimsFromUserInfoEndpoint = true; // get user details
     openIdConnectOptions.ResponseType = "code";
-    openIdConnectOptions.Scope.Add("https://ycompany.com/payments");
+    openIdConnectOptions.Scope.Add("https://ycompany.com/thirdparty");
     openIdConnectOptions.SaveTokens = true;
 });
 

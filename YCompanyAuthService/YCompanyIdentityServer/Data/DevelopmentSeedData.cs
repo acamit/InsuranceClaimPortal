@@ -42,10 +42,21 @@ namespace YCompanyIdentityServer.Data
                 }
         };
 
+        public static ApiResource ThirdPartyAPIResource = new ApiResource
+        {
+            Name = "ThirdPartyAPIGuid",//Guid.NewGuid().ToString(),
+            DisplayName = "ThirdParty API",
+            Scopes = new List<string>()
+                {
+                    "https://ycompany.com/thirdparty"
+                }
+        };
+
         public static List<ApiResource> ApiResources = new List<ApiResource>
         {
             ApiResource,
-            PaymentsAPIResource
+            PaymentsAPIResource,
+            ThirdPartyAPIResource
         };
 
 
@@ -65,7 +76,13 @@ namespace YCompanyIdentityServer.Data
             DisplayName = "Payments API",
         };
 
-        public static List<ApiScope> ApiScopes = new List<ApiScope>() { ApiScope, PaymentsAPIScope };
+        public static ApiScope ThirdPartyAPIScope = new ApiScope()
+        {
+            Name = "https://ycompany.com/thirdparty", // same as above
+            DisplayName = "ThirdParty API",
+        };
+
+        public static List<ApiScope> ApiScopes = new List<ApiScope>() { ApiScope, PaymentsAPIScope, ThirdPartyAPIScope };
 
         /*
         * Clients
@@ -78,8 +95,8 @@ namespace YCompanyIdentityServer.Data
                 //ClientSecrets = new List<Secret> { new Secret("secret") },
                 ClientName = "Console Applications",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
-                AllowedScopes = new List<string>() { "https://ycompany.com/payments" },
-                AllowedCorsOrigins = new List<string>() { "https://localhost:7001" } // api url
+                AllowedScopes = new List<string>() { "https://ycompany.com/payments", "https://ycompany.com/thirdparty" },
+                AllowedCorsOrigins = new List<string>() { "https://localhost:7001", "https://localhost:7143" } // api url
             },
 
             new Client()
@@ -89,7 +106,7 @@ namespace YCompanyIdentityServer.Data
                 ClientSecrets = new List<Secret> { new Secret("secret".Sha512()) },
                 ClientName = "Web Applications",
                 AllowedGrantTypes = GrantTypes.Code,
-                AllowedScopes = new List<string>() { "https://ycompany.com/api", "openid", "profile", "email", "https://ycompany.com/payments" },
+                AllowedScopes = new List<string>() { "https://ycompany.com/api", "openid", "profile", "email", "https://ycompany.com/payments", "https://ycompany.com/thirdparty" },
                 RedirectUris = new List<string> { "https://localhost:7002/signin-oidc" },
                 PostLogoutRedirectUris = new List<string> { "https://localhost:7002/signout-callback-oidc" }
             },
@@ -100,7 +117,7 @@ namespace YCompanyIdentityServer.Data
                 RequireClientSecret = false, // no client secret for public SPA
                 ClientName = "Single Page Applications",
                 AllowedGrantTypes = GrantTypes.Code,
-                AllowedScopes = new List<string>() { "https://ycompany.com/api", "openid", "profile", "email", "https://ycompany.com/payments" },
+                AllowedScopes = new List<string>() { "https://ycompany.com/api", "openid", "profile", "email", "https://ycompany.com/payments", "https://ycompany.com/thirdparty" },
                 RedirectUris = new List<string> { "https://localhost:7003/authentication/login-callback" },
                 PostLogoutRedirectUris = new List<string> { "https://localhost:7003/authentication/logout-callback" },
                 AllowedCorsOrigins = new List<string>() { "https://localhost:7003" }
