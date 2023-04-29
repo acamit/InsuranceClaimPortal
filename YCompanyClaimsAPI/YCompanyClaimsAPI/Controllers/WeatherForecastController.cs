@@ -10,8 +10,8 @@ namespace YCompanyClaimsAPI.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
 
         private readonly ILogger<WeatherForecastController> _logger;
 
@@ -23,6 +23,7 @@ namespace YCompanyClaimsAPI.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IActionResult Get()
         {
+            
             return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
 
         }

@@ -1,7 +1,28 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using YCompany.Claims.DataAccess;
+using YCompany.Claims.Domain.InfrastructureInterfaces;
+using YCompany.Claims.ExceptionHandling;
+using YCompany.Claims.Logging;
+using YCompanyClaimsAPI;
+using YCompanyClaimsAPI.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.ConfigureLogging(logging =>
+{
+    logging.ClearProviders();
+
+    logging.AddYCompanyLogger();
+
+    logging.AddColorConsoleLogger(configuration =>
+    {
+        // Replace warning value from appsettings.json of "Cyan"
+        configuration.LogLevelToColorMap[LogLevel.Warning] = ConsoleColor.DarkCyan;
+        // Replace warning value from appsettings.json of "Red"
+        configuration.LogLevelToColorMap[LogLevel.Error] = ConsoleColor.DarkRed;
+    });
+});
 
 // Add services to the container.
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -16,7 +37,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             */
             ValidateAudience = false
         };
-    });
+    }
+);
 
 
 /**
@@ -38,30 +60,42 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddTransient<IClaimsStorageService, SqlStorageService>();
+builder.Services.AddHealthChecks().AddCheck<StorageHealthChecks>("Storage");
+builder.Services.AddHealthChecks().AddCheck<QueueHealthChecks>("Queue");
 
 var app = builder.Build();
-
+/*
+ *  we can log here using
+ *  app.Logger.LogInformation("");
+*/
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+/*
+ * Configure custome middleware
+ */
+app.ConfigureMiddleware();
 
 app.UseHttpsRedirection();
+app.UseHealthChecks("/health");
 app.UseAuthentication();
 
 app.UseAuthorization();
 
 
-//app.MapControllers();
-/*
- *
- *link auth policy to controllers
- */
+//  app.MapControllers();
 
+/*
+ *  link auth policy to controllers
+ *
+ */
 app.MapControllers()
     .RequireAuthorization("ApiScope");
 
 
 app.Run();
+
