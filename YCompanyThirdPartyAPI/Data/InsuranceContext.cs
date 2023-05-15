@@ -20,43 +20,43 @@ namespace YCompanyPaymentsAPI.Data
                 .WithOne(a => a.Policy)
                 .HasForeignKey(a => a.PolicyId);
 
-            modelBuilder.Entity<Policy_Coverage>().HasKey(pc => new { pc.Id});
+            modelBuilder.Entity<PolicyCoverage>().HasKey(pc => new { pc.Id});
 
-            modelBuilder.Entity<Policy_Coverage>()
+            modelBuilder.Entity<PolicyCoverage>()
             .HasOne(p => p.Policy)
             .WithMany(a => a.PolicyCoverages)
             .HasForeignKey(a => a.PolicyId)
             .OnDelete(DeleteBehavior.ClientSetNull);            
 
-            modelBuilder.Entity<Policy_Coverage>()
+            modelBuilder.Entity<PolicyCoverage>()
             .HasOne(p => p.Coverage)
             .WithMany(a => a.PolicyCoverages)
             .HasForeignKey(a => a.CoverageId)
             .OnDelete(DeleteBehavior.ClientSetNull);
 
-            modelBuilder.Entity<Vehicle_Driver>().HasKey(vd => new { vd.Id});
+            modelBuilder.Entity<VehicleDriver>().HasKey(vd => new { vd.Id});
 
-            modelBuilder.Entity<Vehicle_Driver>()
+            modelBuilder.Entity<VehicleDriver>()
             .HasOne(p => p.Vehicle)
             .WithMany(a => a.VehicleDrivers)
             .HasForeignKey(a => a.VehicleId)
             .OnDelete(DeleteBehavior.ClientSetNull);
 
-            modelBuilder.Entity<Vehicle_Driver>()
+            modelBuilder.Entity<VehicleDriver>()
             .HasOne(p => p.Driver)
             .WithMany(a => a.VehicleDrivers)
             .HasForeignKey(a => a.DriverId)
             .OnDelete(DeleteBehavior.ClientSetNull);
 
-            modelBuilder.Entity<Vehicle_Coverage>().HasKey(vc => new { vc.Id });
+            modelBuilder.Entity<VehicleCoverage>().HasKey(vc => new { vc.Id });
 
-            modelBuilder.Entity<Vehicle_Coverage>()
+            modelBuilder.Entity<VehicleCoverage>()
             .HasOne(p => p.Vehicle)
             .WithMany(a => a.VehicleCoverages)
             .HasForeignKey(a => a.VehicleId)
             .OnDelete(DeleteBehavior.ClientSetNull);
 
-            modelBuilder.Entity<Vehicle_Coverage>()
+            modelBuilder.Entity<VehicleCoverage>()
             .HasOne(p => p.Coverage)
             .WithMany(a => a.VehicleCoverages)
             .HasForeignKey(a => a.CoverageId)

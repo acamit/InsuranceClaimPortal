@@ -11,7 +11,7 @@ namespace YCompanyPaymentsAPI.Models
         public string? Code { get; set; }
         public bool IsPolicyCoverage { get; set; }
         public bool IsVehicleCoverage { get; set; }
-        public ICollection<Policy_Coverage>? PolicyCoverages { get; set; }
-        public ICollection<Vehicle_Coverage>? VehicleCoverages { get; set; }
+        public ICollection<PolicyCoverage>? PolicyCoverages { get; set; }
+        public ICollection<VehicleCoverage>? VehicleCoverages { get; set; }
     }
 }

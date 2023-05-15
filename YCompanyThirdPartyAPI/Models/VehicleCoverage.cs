@@ -4,16 +4,16 @@ using System.Text.Json.Serialization;
 
 namespace YCompanyPaymentsAPI.Models
 {
-    public class Policy_Coverage
+    public class VehicleCoverage
     {
         [Key]
         public int Id { get; set; }
         public bool Active { get; set; }
         public DateTime CreatedDate { get; set; }
-        [ForeignKey("Policy")]
-        public int PolicyId { get; set; }
+        [ForeignKey("Vehicle")]
+        public int VehicleId { get; set; }
         [JsonIgnore]
-        public Policy? Policy { get; set; }
+        public Vehicle? Vehicle { get; set; }
         [ForeignKey("Coverage")]
         public int CoverageId { get; set; }
         [JsonIgnore]

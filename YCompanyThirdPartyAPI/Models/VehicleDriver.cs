@@ -5,7 +5,7 @@ using YCompanyPaymentsAPI.Models;
 
 namespace YCompanyThirdPartyAPI.Models
 {
-    public class Vehicle_Driver
+    public class VehicleDriver
     {
         [Key]
         public int Id { get; set; }

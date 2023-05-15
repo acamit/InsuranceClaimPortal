@@ -19,8 +19,8 @@ namespace YCompanyPaymentsAPI.Models
         public int PolicyId { get; set; }
         [JsonIgnore]
         public Policy? Policy { get; set; }
-        public ICollection<Vehicle_Driver>? VehicleDrivers { get; set; }
-        public ICollection<Vehicle_Coverage>? VehicleCoverages { get; set; }
+        public ICollection<VehicleDriver>? VehicleDrivers { get; set; }
+        public ICollection<VehicleCoverage>? VehicleCoverages { get; set; }
 
     }
 }

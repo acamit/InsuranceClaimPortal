@@ -17,6 +17,6 @@ namespace YCompanyPaymentsAPI.Models
         public DateTime CreatedDate { get; set; }
         public Vehicle? Vehicle { get; set; }
         public ICollection<Driver>? Drivers { get; set; }
-        public ICollection<Policy_Coverage>? PolicyCoverages { get; set; }
+        public ICollection<PolicyCoverage>? PolicyCoverages { get; set; }
     }
 }
