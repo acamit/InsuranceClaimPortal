@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\YCompany.Claims.DataAccess\YCompany.Claims.DataAccess.csproj" />
+	<ProjectReference Include="..\YCompany.Claims.DataAccess\YCompany.Claims.DataAccess.csproj" />
     <ProjectReference Include="..\YCompany.Claims.Domain\YCompany.Claims.Domain.csproj" />
     <ProjectReference Include="..\YCompany.Claims.ExceptionHandling\YCompany.Claims.ExceptionHandling.csproj" />
     <ProjectReference Include="..\YCompany.Claims.Logging\YCompany.Claims.Logging.csproj" />
