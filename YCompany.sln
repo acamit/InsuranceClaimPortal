@@ -47,13 +47,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompany.Claims.Services", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompanyIdentityServer", "Services\YCompanyIdentityServer\YCompanyIdentityServer.csproj", "{6CC13922-8647-4735-BDDF-0D6F82351F22}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompany.Claims.Caching", "Framework\YCompany.Claims.Caching\YCompany.Claims.Caching.csproj", "{598BBF5E-FD95-4355-A31D-1AD508377F5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompany.Caching", "Framework\YCompany.Claims.Caching\YCompany.Caching.csproj", "{598BBF5E-FD95-4355-A31D-1AD508377F5D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompany.Claims.ExceptionHandling", "Framework\YCompany.Claims.ExceptionHandling\YCompany.Claims.ExceptionHandling.csproj", "{8161631A-A873-4415-BF3A-738DE0A852AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompany.ExceptionHandling", "Framework\YCompany.Claims.ExceptionHandling\YCompany.ExceptionHandling.csproj", "{8161631A-A873-4415-BF3A-738DE0A852AA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompany.Claims.Logging", "Framework\YCompany.Claims.Logging\YCompany.Claims.Logging.csproj", "{3AE122F6-DC91-45E2-A686-BE0D6D15D530}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompany.Logging", "Framework\YCompany.Claims.Logging\YCompany.Logging.csproj", "{3AE122F6-DC91-45E2-A686-BE0D6D15D530}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompany.Claims.MessagingQueue", "Framework\YCompany.Claims.MessagingQueue\YCompany.Claims.MessagingQueue.csproj", "{A825B495-08B3-41C0-A9F7-68EC5F1FA70E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompany.MessagingQueue", "Framework\YCompany.Claims.MessagingQueue\YCompany.MessagingQueue.csproj", "{A825B495-08B3-41C0-A9F7-68EC5F1FA70E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
