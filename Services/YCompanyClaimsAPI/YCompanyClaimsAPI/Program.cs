@@ -5,6 +5,7 @@ using YCompany.Claims.Domain.InfrastructureInterfaces;
 using YCompany.Claims.Logging;
 using YCompanyClaimsAPI;
 using YCompanyClaimsAPI.HealthChecks;
+using YCompany.Claims.ExceptionHandling;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -75,7 +76,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 /*
- * Configure custome middleware
+ * Configure custom middleware
  */
 app.UseYCompanyExceptionHandlingMiddleware();
 

@@ -1,6 +1,6 @@
 ﻿namespace YCompany.Claims.ExceptionHandling
 {
-    internal class ErrorResponse
+    public class ErrorResponse
     {
         public bool Success { get; set; }
 
