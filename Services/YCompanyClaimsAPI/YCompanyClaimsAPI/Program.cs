@@ -4,8 +4,9 @@ using YCompany.Claims.DataAccess;
 using YCompany.Claims.Domain.InfrastructureInterfaces;
 using YCompany.Claims.Logging;
 using YCompanyClaimsAPI;
-using YCompanyClaimsAPI.HealthChecks;
 using YCompany.Claims.ExceptionHandling;
+using YCompany.Claims.MessagingQueue;
+using YCompany.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -60,6 +61,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddTransient<IMessageBroker, SQSService>();
 builder.Services.AddTransient<IClaimsStorageService, SqlStorageService>();
 builder.Services.AddHealthChecks().AddCheck<StorageHealthChecks>("Storage");
 builder.Services.AddHealthChecks().AddCheck<QueueHealthChecks>("Queue");

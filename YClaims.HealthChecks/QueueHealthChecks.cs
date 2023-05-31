@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
 using YCompany.Claims.MessagingQueue;
 
-namespace YCompanyClaimsAPI.HealthChecks
+namespace YCompany.HealthChecks
 {
     public class QueueHealthChecks : IHealthCheck
     {

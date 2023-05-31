@@ -1,13 +1,13 @@
 ﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
-using YCompany.Claims.Domain.InfrastructureInterfaces;
+using YCompany.HealthChecks.Interfaces;
 
-namespace YCompanyClaimsAPI.HealthChecks
+namespace YCompany.HealthChecks
 {
     public class StorageHealthChecks : IHealthCheck
     {
-        private readonly IClaimsStorageService _storageService;
+        private readonly IStorageHealth _storageService;
 
-        public StorageHealthChecks(IClaimsStorageService storageService)
+        public StorageHealthChecks(IStorageHealth storageService)
         {
             _storageService = storageService;
         }

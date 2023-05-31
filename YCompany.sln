@@ -55,6 +55,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompany.Logging", "Framewo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YCompany.MessagingQueue", "Framework\YCompany.Claims.MessagingQueue\YCompany.MessagingQueue.csproj", "{A825B495-08B3-41C0-A9F7-68EC5F1FA70E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YCompany.HealthChecks", "YClaims.HealthChecks\YCompany.HealthChecks.csproj", "{7A26DBF3-BCB4-4B1C-8340-D4BFBD757CC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +115,10 @@ Global
 		{A825B495-08B3-41C0-A9F7-68EC5F1FA70E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A825B495-08B3-41C0-A9F7-68EC5F1FA70E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A825B495-08B3-41C0-A9F7-68EC5F1FA70E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A26DBF3-BCB4-4B1C-8340-D4BFBD757CC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A26DBF3-BCB4-4B1C-8340-D4BFBD757CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A26DBF3-BCB4-4B1C-8340-D4BFBD757CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A26DBF3-BCB4-4B1C-8340-D4BFBD757CC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,6 +147,7 @@ Global
 		{8161631A-A873-4415-BF3A-738DE0A852AA} = {347BC5A5-E6B2-4FB9-89CF-5C5060779E19}
 		{3AE122F6-DC91-45E2-A686-BE0D6D15D530} = {347BC5A5-E6B2-4FB9-89CF-5C5060779E19}
 		{A825B495-08B3-41C0-A9F7-68EC5F1FA70E} = {347BC5A5-E6B2-4FB9-89CF-5C5060779E19}
+		{7A26DBF3-BCB4-4B1C-8340-D4BFBD757CC0} = {347BC5A5-E6B2-4FB9-89CF-5C5060779E19}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A7F43644-7FC7-4EDB-9631-E5784A786800}

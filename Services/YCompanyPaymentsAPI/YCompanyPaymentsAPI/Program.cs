@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
+using YCompany.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,6 +67,9 @@ builder.Services.AddSwaggerGen(swaggerGenOptions =>
         }
     });
 });
+
+builder.Services.AddHealthChecks().AddCheck<StorageHealthChecks>("Storage");
+builder.Services.AddHealthChecks().AddCheck<QueueHealthChecks>("Queue");
 
 var app = builder.Build();
 
