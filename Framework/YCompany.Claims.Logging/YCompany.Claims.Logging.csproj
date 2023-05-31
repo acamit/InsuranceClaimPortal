@@ -22,8 +22,4 @@
     <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="9.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\YCompany.Claims.Domain\YCompany.Claims.Domain.csproj" />
-  </ItemGroup>
-
 </Project>
