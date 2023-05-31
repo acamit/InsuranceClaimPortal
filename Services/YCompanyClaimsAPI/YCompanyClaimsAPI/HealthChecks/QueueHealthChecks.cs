@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
-using YCompany.Claims.Domain.InfrastructureInterfaces;
+using YCompany.Claims.MessagingQueue;
 
 namespace YCompanyClaimsAPI.HealthChecks
 {

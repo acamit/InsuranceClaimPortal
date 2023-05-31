@@ -14,6 +14,7 @@
   <ItemGroup>
 	<ProjectReference Include="..\..\..\Framework\YCompany.Claims.ExceptionHandling\YCompany.ExceptionHandling.csproj" />
 	<ProjectReference Include="..\..\..\Framework\YCompany.Claims.Logging\YCompany.Logging.csproj" />
+	<ProjectReference Include="..\..\..\Framework\YCompany.Claims.MessagingQueue\YCompany.MessagingQueue.csproj" />
 	<ProjectReference Include="..\YCompany.Claims.DataAccess\YCompany.Claims.DataAccess.csproj" />
     <ProjectReference Include="..\YCompany.Claims.Domain\YCompany.Claims.Domain.csproj" />
   </ItemGroup>
