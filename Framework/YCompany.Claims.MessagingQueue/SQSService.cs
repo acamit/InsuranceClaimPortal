@@ -1,6 +1,4 @@
-﻿using YCompany.Claims.Domain.InfrastructureInterfaces;
-
-namespace YCompany.Claims.MessagingQueue
+﻿namespace YCompany.Claims.MessagingQueue
 {
     public class SQSService : IMessageBroker
     {

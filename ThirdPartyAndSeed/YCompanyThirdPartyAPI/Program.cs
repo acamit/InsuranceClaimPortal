@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.OpenApi.Models;
-using YCompanyPaymentsAPI.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using System.Reflection;
+using YCompanyPaymentsAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using YCompany.Claims.DataAccess;
 using YCompany.Claims.Domain.InfrastructureInterfaces;
-using YCompany.Claims.ExceptionHandling;
 using YCompany.Claims.Logging;
 using YCompanyClaimsAPI;
 using YCompanyClaimsAPI.HealthChecks;
@@ -78,7 +77,7 @@ if (app.Environment.IsDevelopment())
 /*
  * Configure custome middleware
  */
-app.ConfigureMiddleware();
+app.UseYCompanyExceptionHandlingMiddleware();
 
 app.UseHttpsRedirection();
 app.UseHealthChecks("/health");

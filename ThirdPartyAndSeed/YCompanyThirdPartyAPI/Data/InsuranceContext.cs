@@ -4,8 +4,8 @@ using YCompanyThirdPartyAPI.Models;
 
 namespace YCompanyPaymentsAPI.Data
 {
-    
-     public class InsuranceContext : DbContext
+
+    public class InsuranceContext : DbContext
     {
         public InsuranceContext(DbContextOptions<InsuranceContext> options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -20,13 +20,13 @@ namespace YCompanyPaymentsAPI.Data
                 .WithOne(a => a.Policy)
                 .HasForeignKey(a => a.PolicyId);
 
-            modelBuilder.Entity<PolicyCoverage>().HasKey(pc => new { pc.Id});
+            modelBuilder.Entity<PolicyCoverage>().HasKey(pc => new { pc.Id });
 
             modelBuilder.Entity<PolicyCoverage>()
             .HasOne(p => p.Policy)
             .WithMany(a => a.PolicyCoverages)
             .HasForeignKey(a => a.PolicyId)
-            .OnDelete(DeleteBehavior.ClientSetNull);            
+            .OnDelete(DeleteBehavior.ClientSetNull);
 
             modelBuilder.Entity<PolicyCoverage>()
             .HasOne(p => p.Coverage)
@@ -34,7 +34,7 @@ namespace YCompanyPaymentsAPI.Data
             .HasForeignKey(a => a.CoverageId)
             .OnDelete(DeleteBehavior.ClientSetNull);
 
-            modelBuilder.Entity<VehicleDriver>().HasKey(vd => new { vd.Id});
+            modelBuilder.Entity<VehicleDriver>().HasKey(vd => new { vd.Id });
 
             modelBuilder.Entity<VehicleDriver>()
             .HasOne(p => p.Vehicle)

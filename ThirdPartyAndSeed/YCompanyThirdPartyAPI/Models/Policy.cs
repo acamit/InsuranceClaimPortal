@@ -9,7 +9,7 @@ namespace YCompanyPaymentsAPI.Models
         public string PolicyName { get; set; } = string.Empty;
         public int PolicyNumber { get; set; }
         public DateTime PolicyEffectiveDate { get; set; }
-        public DateTime PolicyExpirationDate { get; set;}
+        public DateTime PolicyExpirationDate { get; set; }
         public string PaymentOption { get; set; } = string.Empty;
         public double TotalAmount { get; set; }
         public bool Active { get; set; }
