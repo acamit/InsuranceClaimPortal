@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using YCompany.Claims.DataAccess;
 using YCompany.Claims.Domain.InfrastructureInterfaces;
-using YCompany.Claims.Logging;
-using YCompanyClaimsAPI;
 using YCompany.Claims.ExceptionHandling;
+using YCompany.Claims.Logging;
 using YCompany.Claims.MessagingQueue;
 using YCompany.HealthChecks;
+using YCompanyClaimsAPI;
 
 var builder = WebApplication.CreateBuilder(args);
 

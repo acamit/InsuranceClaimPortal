@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\YClaims.HealthChecks\YCompany.HealthChecks.csproj" />
+    <ProjectReference Include="..\..\..\Framework\YCompany.HealthChecks\YCompany.HealthChecks.csproj" />
   </ItemGroup>
 
 </Project>

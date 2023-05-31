@@ -2,7 +2,7 @@
 
 namespace YCompany.Claims.Domain.InfrastructureInterfaces
 {
-    public interface IClaimsStorageService: IStorageHealth
+    public interface IClaimsStorageService : IStorageHealth
     {
     }
 }

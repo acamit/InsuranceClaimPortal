@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Framework\YCompany.Claims.MessagingQueue\YCompany.MessagingQueue.csproj" />
+    <ProjectReference Include="..\YCompany.Claims.MessagingQueue\YCompany.MessagingQueue.csproj" />
   </ItemGroup>
 
 </Project>
