@@ -1,6 +1,6 @@
 ﻿namespace YCompany.Communications.Infrastructure
 {
-    public class Class1
+    public class Infrastructure
     {
 
     }

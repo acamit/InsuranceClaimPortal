@@ -2,7 +2,7 @@
 
 namespace YCompany.Payments.Services.DomainServices
 {
-    internal class PaymentCalculationService : IPaymentCalculationService
+    public class PaymentCalculationService : IPaymentCalculationService
     {
     }
 }
