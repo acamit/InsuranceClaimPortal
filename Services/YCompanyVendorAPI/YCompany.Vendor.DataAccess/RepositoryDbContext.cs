@@ -5,9 +5,9 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
-using YCompany.UserManagement.Domain.Entities;
+using YCompany.Vendor.Domain.Entities;
 
-namespace YCompany.UserManagement.DataAccess
+namespace YCompany.Vendor.DataAccess
 {
     public sealed class RepositoryDbContext : DbContext
     {
@@ -16,7 +16,7 @@ namespace YCompany.UserManagement.DataAccess
 
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Vendors> Vendors { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) =>
        modelBuilder.ApplyConfigurationsFromAssembly(typeof(RepositoryDbContext).Assembly);

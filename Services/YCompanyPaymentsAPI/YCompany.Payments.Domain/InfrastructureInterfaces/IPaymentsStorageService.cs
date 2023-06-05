@@ -1,6 +1,8 @@
-﻿namespace YCompany.Payments.Domain.InfrastructureInterfaces
+﻿using YCompany.HealthChecks.Interfaces;
+
+namespace YCompany.Payments.Domain.InfrastructureInterfaces
 {
-    public interface IPaymentsStorageService
+    public interface IPaymentsStorageService : IStorageHealth
     {
         Task<bool> CheckHealthAsync();
     }

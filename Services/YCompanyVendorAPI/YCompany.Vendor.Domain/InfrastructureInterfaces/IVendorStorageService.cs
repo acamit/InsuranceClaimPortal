@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YCompany.HealthChecks.Interfaces;
 
-namespace YCompany.UserManagement.Domain.InfrastructureInterfaces
+namespace YCompany.Vendor.Domain.InfrastructureInterfaces
 {
-    public interface IUserManagementStorageService : IStorageHealth
+    public interface IVendorStorageService
     {
         Task<bool> CheckHealthAsync();
     }
