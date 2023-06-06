@@ -10,4 +10,8 @@
     <ProjectReference Include="..\YCompany.Claims.Domain\YCompany.Claims.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DomainServices\Interfaces\" />
+  </ItemGroup>
+
 </Project>

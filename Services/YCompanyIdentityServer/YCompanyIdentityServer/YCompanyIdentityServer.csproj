@@ -24,4 +24,12 @@
     <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Framework\YCompany.Claims.Caching\YCompany.Caching.csproj" />
+    <ProjectReference Include="..\..\..\Framework\YCompany.Claims.ExceptionHandling\YCompany.ExceptionHandling.csproj" />
+    <ProjectReference Include="..\..\..\Framework\YCompany.Claims.Logging\YCompany.Logging.csproj" />
+    <ProjectReference Include="..\..\..\Framework\YCompany.Claims.MessagingQueue\YCompany.MessagingQueue.csproj" />
+    <ProjectReference Include="..\..\..\Framework\YCompany.HealthChecks\YCompany.HealthChecks.csproj" />
+  </ItemGroup>
+
 </Project>
