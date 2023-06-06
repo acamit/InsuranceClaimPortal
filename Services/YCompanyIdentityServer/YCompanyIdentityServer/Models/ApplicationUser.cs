@@ -6,8 +6,8 @@ namespace YCompanyIdentityServer.Models
     /// </summary>
     public class ApplicationUser : IdentityUser
     {
-        public string GivenName { get; set; }
+        public string? GivenName { get; set; }
 
-        public string FamilyName { get; set; }
+        public string? FamilyName { get; set; }
     }
 }
