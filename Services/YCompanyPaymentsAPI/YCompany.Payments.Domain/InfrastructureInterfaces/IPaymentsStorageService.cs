@@ -4,6 +4,5 @@ namespace YCompany.Payments.Domain.InfrastructureInterfaces
 {
     public interface IPaymentsStorageService : IStorageHealth
     {
-        Task<bool> CheckHealthAsync();
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using YCompany.Communications.Domain.InfrastructureInterfaces;
+﻿using YCompany.Communications.Domain.InfrastructureInterfaces;
 
 namespace YCompany.Communications.DataAccess
 {

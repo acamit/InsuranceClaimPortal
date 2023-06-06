@@ -4,6 +4,5 @@ namespace YCompany.Claims.Domain.InfrastructureInterfaces
 {
     public interface IClaimsStorageService : IStorageHealth
     {
-        Task<bool> CheckHealthAsync();
     }
 }
