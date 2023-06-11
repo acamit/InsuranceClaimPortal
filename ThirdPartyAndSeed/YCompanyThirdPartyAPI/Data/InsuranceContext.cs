@@ -8,6 +8,10 @@ namespace YCompanyPaymentsAPI.Data
     public class InsuranceContext : DbContext
     {
         public InsuranceContext(DbContextOptions<InsuranceContext> options) : base(options) { }
+
+        public DbSet<Policy> Policies { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Policy>()
@@ -62,8 +66,6 @@ namespace YCompanyPaymentsAPI.Data
             .HasForeignKey(a => a.CoverageId)
             .OnDelete(DeleteBehavior.ClientSetNull);
         }
-        public DbSet<Policy> Policies { get; set; }
-        public DbSet<Vehicle> Vehicles { get; set; }
     }
 
 }
