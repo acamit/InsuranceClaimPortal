@@ -18,6 +18,7 @@ builder.Services.AddDbContext<InsuranceContext>((serviceProvider, dbContextOptio
         );
 });
 
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(jwtbearerOptions =>
     {
