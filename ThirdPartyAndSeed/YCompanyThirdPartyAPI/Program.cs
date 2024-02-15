@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using YCompany.Configurations;
 using YCompanyPaymentsAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -81,6 +83,8 @@ builder.Services.AddSwaggerGen(swaggerGenOptions =>
 });
 
 var app = builder.Build();
+SecurityMetadata options = app.Services.GetRequiredService<IOptions<SecurityMetadata>>().Value;
+Console.WriteLine($"apiKey={options.ApiKey}");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
