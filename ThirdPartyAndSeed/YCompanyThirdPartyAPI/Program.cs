@@ -3,8 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using YCompanyPaymentsAPI.Data;
+using YCompany.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddSecurityConfiguration();
 
 // Add services to the container.
 builder.Services.AddDbContext<InsuranceContext>((serviceProvider, dbContextOptionsBuilder) =>
