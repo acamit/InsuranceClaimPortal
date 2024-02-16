@@ -11,27 +11,41 @@ namespace YCompanyWebApplication.Pages
 
         private IHttpClientFactory HttpClientFactory { get; }
 
-        private IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
+        private readonly ILogger<ApiModel> _logger; 
 
-        public ApiModel(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        public ApiModel(IHttpClientFactory httpClientFactory, IConfiguration configuration, ILogger<ApiModel> logger)
         {
             HttpClientFactory = httpClientFactory;
             _configuration = configuration;
             Data = string.Empty;
+            _logger = logger;
         }
         public async Task OnGet()
         {
-            //using var httpClient = HttpClientFactory.CreateClient("PaymentsAPI");
-            using var httpClient = HttpClientFactory.CreateClient("ThirdPartyAPI");
+
+            try
+            {
+                // Your existing HTTP request code here
+                //using var httpClient = HttpClientFactory.CreateClient("PaymentsAPI");
+                using var httpClient = HttpClientFactory.CreateClient("ThirdPartyAPI");
 
 
-            // get the access token from the cookie and add it to the default request headers. the save token = true is helpful here as we have the token
+                // get the access token from the cookie and add it to the default request headers. the save token = true is helpful here as we have the token
 
-            //httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", await HttpContext.GetTokenAsync("access_token"));
-            //Data = await httpClient.GetStringAsync("/WeatherForecast");
+                //httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", await HttpContext.GetTokenAsync("access_token"));
+                //Data = await httpClient.GetStringAsync("/WeatherForecast");
 
-            httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", await HttpContext.GetTokenAsync("access_token"));
-            Data = await httpClient.GetStringAsync("/ThirdParty");
+                httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", await HttpContext.GetTokenAsync("access_token"));
+                Data = await httpClient.GetStringAsync("/ThirdParty");
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception appropriately
+                // For debugging purposes, you can also inspect 'ex.Message', 'ex.InnerException', and additional details from the HttpResponseMessage
+                _logger.LogError(ex,ex.Message);
+            }
+           
 
         }
     }

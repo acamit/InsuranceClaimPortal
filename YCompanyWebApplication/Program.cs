@@ -1,13 +1,24 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using YCompany.Claims.Logging;
+using YCompanyPaymentsAPI.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<InsuranceContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
 
 /*builder.Services.AddHttpClient("PaymentsAPI", httpClient =>
 {
     httpClient.BaseAddress = new Uri(builder.Configuration["API:PaymentAPI"]);
 });
 */
+
 builder.Services.AddHttpClient("ThirdPartyAPI", httpClient =>
 {
     httpClient.BaseAddress = new Uri(builder.Configuration["API:ThirdPartyAPI"]);
@@ -30,15 +41,16 @@ builder.Services.AddAuthentication(authenticationOptions =>
     openIdConnectOptions.Scope.Add("https://ycompany.com/thirdparty");
     openIdConnectOptions.SaveTokens = true;
 });
-
 builder.Services.AddAuthorization();
 
 builder.Services.AddHttpClient();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Logging.ClearProviders();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -57,5 +69,9 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

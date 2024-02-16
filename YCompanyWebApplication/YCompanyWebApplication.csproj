@@ -8,9 +8,20 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="6.0.14" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.14">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Framework\YCompany.Claims.ExceptionHandling\YCompany.ExceptionHandling.csproj" />
+    <ProjectReference Include="..\Framework\YCompany.Claims.Logging\YCompany.Logging.csproj" />
+    <ProjectReference Include="..\Services\YCompanyPaymentsAPI\YCompanyPaymentsAPI\YCompanyPaymentsAPI.csproj" />
+    <ProjectReference Include="..\ThirdPartyAndSeed\YCompanyThirdPartyAPI\YCompanyThirdPartyAPI.csproj" />
   </ItemGroup>
 </Project>

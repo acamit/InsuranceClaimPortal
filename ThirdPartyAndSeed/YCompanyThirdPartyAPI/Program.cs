@@ -4,6 +4,10 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using YCompanyPaymentsAPI.Data;
 
+using YCompany.CustomLogging;
+using Microsoft.Extensions.Options;
+using YCompany.Configurations;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -47,6 +51,12 @@ builder.Services.AddCors(corsOptions =>
     });
 });
 
+
+
+//using IHost host = builder.Build();
+
+
+builder.Services.AddSingleton<ILoggerProvider>(provider => new FileLoggerProvider(@"C:\Users\nitesh01\Downloads\YCompanydata.txt.txt"));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(swaggerGenOptions =>
@@ -81,6 +91,8 @@ builder.Services.AddSwaggerGen(swaggerGenOptions =>
 });
 
 var app = builder.Build();
+
+SecurityMetadata options = app.Services.GetRequiredService<IOptions<SecurityMetadata>>().Value;
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
