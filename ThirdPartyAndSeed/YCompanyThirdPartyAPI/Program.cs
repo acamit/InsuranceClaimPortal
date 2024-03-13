@@ -9,7 +9,9 @@ using Amazon.SecretsManager;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var client = new AmazonSecretsManagerClient("AKIAW3MD6UTCDA5LKXJ5", "Mg24DKADQEog7KDar4MQwvH1YAyOgFko7o/7RflC", Amazon.RegionEndpoint.EUNorth1);
+var accessKey = builder.Configuration["accessKey"];
+var secretAccessKey = builder.Configuration["secretAccessKey"];
+var client = new AmazonSecretsManagerClient(accessKey, secretAccessKey, Amazon.RegionEndpoint.EUNorth1);
 builder.Configuration.AddSecurityConfiguration(client, "Development_YCompanyApi", "EUNorth1");
 
 builder.Logging.AddColorConsoleLogger();
