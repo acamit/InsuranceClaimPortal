@@ -1,10 +1,16 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using YCompany.Configurations;
 using YCompanyPaymentsAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Host.ConfigureAppConfiguration(((_, configurationBuilder) =>
+{
+    configurationBuilder.AddAmazonSecretsManager("<your region>", "<secret name>");
+}));
 
 // Add services to the container.
 builder.Services.AddDbContext<InsuranceContext>((serviceProvider, dbContextOptionsBuilder) =>
@@ -39,6 +45,7 @@ builder.Services.AddAuthorization(authorizationOptions =>
 
 
 builder.Services.AddControllers();
+builder.Services.Configure<MyApiCredentials>(builder.Configuration);
 builder.Services.AddCors(corsOptions =>
 {
     corsOptions.AddDefaultPolicy(corsPolicyBuilder =>
