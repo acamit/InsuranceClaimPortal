@@ -3,12 +3,18 @@
 
 namespace YCompany.Configurations
 {
-    public static class SecretManagerConfigurationExtensions
+    public static class CustomConfigurationExtensions
     {
-        public static IConfigurationBuilder AddSecurityConfiguration
-        (this IConfigurationBuilder builder)
+        public static void AddAmazonSecretsManager(this IConfigurationBuilder configurationBuilder,
+                        string region,
+                        string secretName)
         {
-            return builder.Add(new SecretManagerConfigurationSource());
+            var configurationSource =
+                    new AmazonSecretsManagerConfigurationSource(region, secretName);
+
+            configurationBuilder.Add(configurationSource);
         }
     }
+
 }
+

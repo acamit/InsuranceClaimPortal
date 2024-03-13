@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using YCompany.Configurations;
 using YCompanyPaymentsAPI.Data;
 using YCompanyPaymentsAPI.Models;
@@ -12,31 +13,30 @@ namespace YCompanyThirdPartyAPI.Controllers
     public class ThirdPartyController : ControllerBase
     {
         private readonly InsuranceContext _context;
-        private readonly IConfiguration _configuration;
+        private readonly MyApiCredentials _myApiCredentials;
 
-        public ThirdPartyController(InsuranceContext context, IConfiguration configuration)
+
+        public ThirdPartyController(InsuranceContext context, IOptions<MyApiCredentials> options)
         {
             _context = context;
-            _configuration = configuration;
+            _myApiCredentials = options.Value;
         }
 
-        [HttpGet]
-        public IEnumerable<Policy> Get()
-        {
-            List<Policy> result = _context.Policies.ToList();
-            return result;
-        }
+        //[HttpGet]
+        //public IEnumerable<Policy> Get()
+        //{
+        //    List<Policy> result = _context.Policies.ToList();
+        //    return result;
+        //}
 
         [HttpGet]
-        public IActionResult GetConfig()
+        public IActionResult GetKey()
         {
-            var metadata = new SecurityMetadata
+            var metadata = new MyApiCredentials
             {
-
-                ApiKey = _configuration["ApiKey"],
-                ApiSecret = _configuration["ApiSecret"]
+                ApiKey = _myApiCredentials.ApiKey,
+                UserId = _myApiCredentials.UserId
             };
-            Console.WriteLine(metadata.ApiKey);
             return Ok(metadata);
         }
     }

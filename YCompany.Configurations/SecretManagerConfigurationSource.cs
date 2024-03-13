@@ -5,11 +5,20 @@ using System.Text;
 
 namespace YCompany.Configurations
 {
-    public class SecretManagerConfigurationSource : IConfigurationSource
+    public class AmazonSecretsManagerConfigurationSource : IConfigurationSource
     {
+        private readonly string _region;
+        private readonly string _secretName;
+
+        public AmazonSecretsManagerConfigurationSource(string region, string secretName)
+        {
+            _region = region;
+            _secretName = secretName;
+        }
+
         public IConfigurationProvider Build(IConfigurationBuilder builder)
         {
-            return new SecretManagerConfigurationProvider();
+            return new AmazonSecretsManagerConfigurationProvider(_region, _secretName);
         }
     }
 }

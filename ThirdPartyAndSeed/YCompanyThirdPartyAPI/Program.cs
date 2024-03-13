@@ -7,6 +7,10 @@ using YCompany.Configurations;
 using YCompanyPaymentsAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Host.ConfigureAppConfiguration(((_, configurationBuilder) =>
+{
+    configurationBuilder.AddAmazonSecretsManager("<your region>", "<secret name>");
+}));
 
 // Add services to the container.
 builder.Services.AddDbContext<InsuranceContext>((serviceProvider, dbContextOptionsBuilder) =>
@@ -41,6 +45,7 @@ builder.Services.AddAuthorization(authorizationOptions =>
 
 
 builder.Services.AddControllers();
+builder.Services.Configure<MyApiCredentials>(builder.Configuration);
 builder.Services.AddCors(corsOptions =>
 {
     corsOptions.AddDefaultPolicy(corsPolicyBuilder =>
@@ -83,8 +88,6 @@ builder.Services.AddSwaggerGen(swaggerGenOptions =>
 });
 
 var app = builder.Build();
-SecurityMetadata options = app.Services.GetRequiredService<IOptions<SecurityMetadata>>().Value;
-Console.WriteLine($"apiKey={options.ApiKey}");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
