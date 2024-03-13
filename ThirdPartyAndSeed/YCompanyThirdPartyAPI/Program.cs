@@ -4,10 +4,15 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using YCompanyPaymentsAPI.Data;
 using YCompany.Configurations;
+using YCompanyClaimsAPI;
+using Amazon.SecretsManager;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Configuration.AddSecurityConfiguration();
+var client = new AmazonSecretsManagerClient("AKIAW3MD6UTCDA5LKXJ5", "Mg24DKADQEog7KDar4MQwvH1YAyOgFko7o/7RflC", Amazon.RegionEndpoint.EUNorth1);
+builder.Configuration.AddSecurityConfiguration(client, "Development_YCompanyApi", "EUNorth1");
+
+builder.Logging.AddColorConsoleLogger();
 
 // Add services to the container.
 builder.Services.AddDbContext<InsuranceContext>((serviceProvider, dbContextOptionsBuilder) =>

@@ -27,16 +27,16 @@ namespace YCompanyThirdPartyAPI.Controllers
             return result;
         }
 
-        [HttpGet]
-        public IActionResult GetValue()
-        {
-            var metadata = new SecretManagerConfigurationSecurityMetadata
-            {
-                Key1 = _configuration["Key1"],
-                Key2 = _configuration["Key2"]
-            };
-            Console.WriteLine(metadata);
-            return Ok(metadata);
-        }
+        //[HttpGet]
+        //public IActionResult GetValue()
+        //{
+        //    var metadata = new SecretManagerConfigurationSecurityMetadata
+        //    {
+        //        Key1 = _configuration["Key1"],
+        //        Key2 = _configuration["Key2"]
+        //    };
+        //    Console.WriteLine(metadata);
+        //    return Ok(metadata);
+        //}
     }
 }
