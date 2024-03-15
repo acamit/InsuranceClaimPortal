@@ -1,0 +1,7 @@
+{
+  "SecurityMetadata" : {
+    "ApiKey": "apikeyFromCustomSetting",
+    "ApiSecret": "ApiSecretFromCustomSetting"
+  }
+  
+}

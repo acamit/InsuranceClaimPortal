@@ -3,6 +3,24 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
+    <UserSecretsId>05b6e7f4-852d-4fa7-8dc7-db70b10db3f7</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="CustomSetting.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="CustomSetting.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="System.Text.Json" Version="8.0.1" />
+  </ItemGroup>
 
 </Project>
