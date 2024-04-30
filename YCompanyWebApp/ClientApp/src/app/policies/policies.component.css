@@ -1,0 +1,37 @@
+.container {
+  margin: 50px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.entry-info {
+  font-size: 16px;
+}
+
+.info-item {
+  margin-bottom: 10px;
+}
+
+.info-item strong {
+  margin-right: 5px;
+}
+
+.info-item span {
+  color: #555;
+}

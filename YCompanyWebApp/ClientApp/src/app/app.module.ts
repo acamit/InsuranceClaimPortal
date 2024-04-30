@@ -13,6 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { PoliciesComponent } from './policies/policies.component';
+import { VendorsComponent } from './vendors/vendors.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { MatButtonModule } from '@angular/material/button';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    LoginComponent
+    LoginComponent,
+    PoliciesComponent,
+    VendorsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,13 +35,15 @@ import { MatButtonModule } from '@angular/material/button';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'policies', component: PoliciesComponent },
+      { path: 'vendors', component: VendorsComponent },
     ]),
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
