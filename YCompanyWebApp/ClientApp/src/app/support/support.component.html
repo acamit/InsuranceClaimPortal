@@ -1,0 +1,46 @@
+<div class="container">
+  <h1 class="mt-4 mb-4">Contact Customer Support</h1>
+  <form
+    [formGroup]="emailForm"
+    (ngSubmit)="sendEmail()"
+    class="needs-validation,"
+    novalidate
+  >
+    <div class="form-group">
+      <label for="to">To:</label>
+      <input
+        id="to"
+        formControlName="to"
+        type="email"
+        class="form-control"
+        placeholder="To"
+        required
+      />
+      <div class="invalid-feedback">Please provide a valid email address.</div>
+    </div>
+    <div class="form-group">
+      <label for="subject">Subject:</label>
+      <input
+        id="subject"
+        formControlName="subject"
+        type="text"
+        class="form-control"
+        placeholder="Subject"
+        required
+      />
+      <div class="invalid-feedback">Subject is required.</div>
+    </div>
+    <div class="form-group">
+      <label for="body">Body:</label>
+      <textarea
+        id="body"
+        formControlName="body"
+        class="form-control"
+        placeholder="Body"
+        required
+      ></textarea>
+      <div class="invalid-feedback">Body is required.</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Send Email</button>
+  </form>
+</div>
