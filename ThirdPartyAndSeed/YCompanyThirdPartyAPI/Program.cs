@@ -3,8 +3,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using YCompanyPaymentsAPI.Data;
+//using YCompany.Configurations;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+
+/*builder.Host.ConfigureAppConfiguration(((_, configurationBuilder) =>
+{
+    configurationBuilder.AddAmazonSecretsManager("<your region>", "<secret name>");
+}));*/
 
 // Add services to the container.
 builder.Services.AddDbContext<InsuranceContext>((serviceProvider, dbContextOptionsBuilder) =>
@@ -39,6 +46,7 @@ builder.Services.AddAuthorization(authorizationOptions =>
 
 
 builder.Services.AddControllers();
+//builder.Services.Configure<SecretManagerConfigurationData>(builder.Configuration);
 builder.Services.AddCors(corsOptions =>
 {
     corsOptions.AddDefaultPolicy(corsPolicyBuilder =>
