@@ -27,6 +27,24 @@
           >
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link text-dark" [routerLink]="['/policies']"
+              >Policies</a
+            >
+          </li>
+          <!-- <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link text-dark" [routerLink]="['/vendors']"
+              >Vendors</a
+            >
+          </li> -->
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/counter']"
               >Counter</a
@@ -38,9 +56,7 @@
             >
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/login']"
-              >Login</a
-            >
+            <a class="nav-link text-dark" [routerLink]="['/login']">Login</a>
           </li>
         </ul>
       </div>

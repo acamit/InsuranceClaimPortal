@@ -1,63 +1,71 @@
-﻿using Amazon;
-using Amazon.Runtime;
 using Amazon.SecretsManager;
 using Amazon.SecretsManager.Model;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace YCompany.Configurations
 {
     public class SecretManagerConfigurationProvider : ConfigurationProvider
     {
-        private readonly string _region;
-        private readonly string _secretName;
+        private IAmazonSecretsManager _client;
+        private string _secretName;
+        private string _region;
 
-        public SecretManagerConfigurationProvider(string region, string secretName) 
+        public SecretManagerConfigurationProvider(IAmazonSecretsManager client, string secretName, string region)
         {
-            _region= region;
-            _secretName= secretName;
+            _client = client;
+            _secretName = secretName;
+            _region = region;
         }
 
         public override async void Load()
         {
-            var secret = await GetSecret();
-
-            Data = JsonConvert.DeserializeObject<Dictionary<string, string>>(secret);
-        }
-
-        private async Task<string> GetSecret()
-        {
-            string secretName = "MyInsuranceSecret";
-            string region = "eu-north-1";
-
-            AWSCredentials credentials = new BasicAWSCredentials("AKIA5FTY7KYPEVVHQSIX", "qie9fAjPbOcUozFZs8I0Qw2OZY0hD+criWtm9yn5");
-            IAmazonSecretsManager client = new AmazonSecretsManagerClient(credentials, RegionEndpoint.GetBySystemName(region));
-
-
-            GetSecretValueRequest request = new GetSecretValueRequest
+            var getSecretValueRequest = new GetSecretValueRequest()
             {
-                SecretId = secretName,
-                VersionStage = "AWSCURRENT", 
+                SecretId = _secretName,
+                VersionStage = "AWSCURRENT"
             };
-
-            GetSecretValueResponse response;
 
             try
             {
-                response = await client.GetSecretValueAsync(request);
+                var response = await _client.GetSecretValueAsync(getSecretValueRequest);
+                var secretString = response.SecretString;
+                //var text = File.ReadAllText("config.json");
+                var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+                var content = JsonSerializer.Deserialize<SecretManagerConfigurationSecurityMetadata>(secretString, options);
+
+                if (content != null)
+                {
+                    Data = new Dictionary<string, string>
+                    {
+                        { "Key1", content.Key1 },
+                        { "Key2", content.Key2 }
+                    };
+                }
             }
-            catch (Exception e)
+            catch (ResourceNotFoundException)
             {
-                throw e;
+                Console.WriteLine("secret doesn't exist");
             }
-
-            string secret = response.SecretString;
-
-            return secret;
+            catch (InvalidRequestException)
+            {
+                Console.WriteLine("the request is invalid");
+            }
+            catch (InvalidParameterException)
+            {
+                Console.WriteLine("the request parameters are invalid");
+            }
+            catch (DecryptionFailureException)
+            {
+                Console.WriteLine("the secret can't be decrypted");
+            }
+            catch (InternalServiceErrorException)
+            {
+                Console.WriteLine("internal service error");
+            }
         }
     }
 }

@@ -22,6 +22,7 @@ namespace YCompany.Claims.Logging
             if (IsEnabled(logLevel))
             {
                 // send log to queue for open search processing.
+                Console.WriteLine($"[{logLevel}] ({categoryName}) - {formatter(state, exception)}");
             }
         }
     }

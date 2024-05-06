@@ -8,18 +8,19 @@ namespace YCompany.Configurations
 {
     public class SecretManagerConfigurationSource : IConfigurationSource
     {
-        private readonly string _region;
+        private readonly IAmazonSecretsManager _client;
         private readonly string _secretName;
+        private readonly string _region;
 
-        public SecretManagerConfigurationSource(string region, string secretName)
+        public SecretManagerConfigurationSource(IAmazonSecretsManager client, string secretName, string region)
         {
-            _region = region;
+            _client = client;
             _secretName = secretName;
+            _region = region;
         }
-
         public IConfigurationProvider Build(IConfigurationBuilder builder)
         {
-            return new SecretManagerConfigurationProvider(_region, _secretName);
+            return new SecretManagerConfigurationProvider(_client, _secretName, _region);
         }
     }
 }
