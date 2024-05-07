@@ -12,6 +12,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { supportComponent } from './support/support.component';
+import { PoliciesComponent } from './policies/policies.component';
+import { VendorsComponent } from './vendors/vendors.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,10 @@ import { supportComponent } from './support/support.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
+    LoginComponent,
+    PoliciesComponent,
+    VendorsComponent,
+  ],
     LoginComponent,
     supportComponent
 
@@ -34,13 +40,17 @@ import { supportComponent } from './support/support.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'login', component: LoginComponent },
       { path: 'support', component: supportComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'policies', component: PoliciesComponent },
+      { path: 'vendors', component: VendorsComponent },
     ]),
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
     FormsModule
+    MatButtonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

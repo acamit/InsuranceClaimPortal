@@ -10,7 +10,7 @@ namespace YCompany.Claims.DataAccess
 
         }
 
-        public DbSet<Claim> Claims { get; set; }
+        public DbSet<Claim> ClientClaims { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) =>
        modelBuilder.ApplyConfigurationsFromAssembly(typeof(RepositoryDbContext).Assembly);

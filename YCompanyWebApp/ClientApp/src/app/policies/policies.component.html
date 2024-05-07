@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="card" *ngFor="let policy of Policies">
+    <div class="card-header">
+      {{ policy.policyName }}
+    </div>
+    <div class="card-body">
+      <div class="entry-info">
+        <div class="info-item">
+          <strong>Created Date:</strong>
+          <span>{{ policy.createdDate | date : "yyyy-MM-dd" }}</span>
+        </div>
+        <div class="info-item">
+          <strong>Expiry Date:</strong>
+          <span>{{ policy.policyExpirationDate | date : "yyyy-MM-dd" }}</span>
+        </div>
+        <div class="info-item">
+          <strong>Additional Info:</strong>
+          <span>{{ policy.additionalInfo }}</span>
+        </div>
+        <div class="info-item">
+          <strong>Number:</strong> <span>{{ policy.policyNumber }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

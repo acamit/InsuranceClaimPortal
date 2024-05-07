@@ -147,7 +147,7 @@ namespace YCompanyThirdPartyAPI.Migrations
                     b.ToTable("Policies");
                 });
 
-            modelBuilder.Entity("YCompanyPaymentsAPI.Models.Policy_Coverage", b =>
+            modelBuilder.Entity("YCompanyPaymentsAPI.Models.PolicyCoverage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -173,7 +173,7 @@ namespace YCompanyThirdPartyAPI.Migrations
 
                     b.HasIndex("PolicyId");
 
-                    b.ToTable("Policy_Coverage");
+                    b.ToTable("PolicyCoverage");
                 });
 
             modelBuilder.Entity("YCompanyPaymentsAPI.Models.Vehicle", b =>
@@ -210,7 +210,7 @@ namespace YCompanyThirdPartyAPI.Migrations
                     b.ToTable("Vehicles");
                 });
 
-            modelBuilder.Entity("YCompanyPaymentsAPI.Models.Vehicle_Coverage", b =>
+            modelBuilder.Entity("YCompanyPaymentsAPI.Models.VehicleCoverage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -236,10 +236,10 @@ namespace YCompanyThirdPartyAPI.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("Vehicle_Coverage");
+                    b.ToTable("VehicleCoverage");
                 });
 
-            modelBuilder.Entity("YCompanyThirdPartyAPI.Models.Vehicle_Driver", b =>
+            modelBuilder.Entity("YCompanyThirdPartyAPI.Models.VehicleDriver", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -274,7 +274,7 @@ namespace YCompanyThirdPartyAPI.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("Vehicle_Driver");
+                    b.ToTable("VehicleDriver");
                 });
 
             modelBuilder.Entity("YCompanyPaymentsAPI.Models.Driver", b =>
@@ -288,7 +288,7 @@ namespace YCompanyThirdPartyAPI.Migrations
                     b.Navigation("Policy");
                 });
 
-            modelBuilder.Entity("YCompanyPaymentsAPI.Models.Policy_Coverage", b =>
+            modelBuilder.Entity("YCompanyPaymentsAPI.Models.PolicyCoverage", b =>
                 {
                     b.HasOne("YCompanyPaymentsAPI.Models.Coverage", "Coverage")
                         .WithMany("PolicyCoverages")
@@ -316,7 +316,7 @@ namespace YCompanyThirdPartyAPI.Migrations
                     b.Navigation("Policy");
                 });
 
-            modelBuilder.Entity("YCompanyPaymentsAPI.Models.Vehicle_Coverage", b =>
+            modelBuilder.Entity("YCompanyPaymentsAPI.Models.VehicleCoverage", b =>
                 {
                     b.HasOne("YCompanyPaymentsAPI.Models.Coverage", "Coverage")
                         .WithMany("VehicleCoverages")
@@ -333,7 +333,7 @@ namespace YCompanyThirdPartyAPI.Migrations
                     b.Navigation("Vehicle");
                 });
 
-            modelBuilder.Entity("YCompanyThirdPartyAPI.Models.Vehicle_Driver", b =>
+            modelBuilder.Entity("YCompanyThirdPartyAPI.Models.VehicleDriver", b =>
                 {
                     b.HasOne("YCompanyPaymentsAPI.Models.Driver", "Driver")
                         .WithMany("VehicleDrivers")
