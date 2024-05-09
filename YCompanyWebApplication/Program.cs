@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.EntityFrameworkCore;
+using YCompanyPaymentsAPI.Data;
 //using YCompanyPaymentsAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 });
 */
 
-//builder.Services.AddDbContext<InsuranceContext>(options =>
-//   options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<InsuranceContext>(options =>
+   options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddHttpClient("ThirdPartyAPI", httpClient =>
 {

@@ -1,10 +1,17 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
+using Stripe;
 using YCompany.HealthChecks;
+using YCompany.Payments.Services.DomainServices;
+using YCompany.Payments.Services.DomainServices.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+// Add payment service
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(jwtbearerOptions =>
     {
@@ -82,7 +89,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors();
-app.UseAuthentication();
+StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
+//app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

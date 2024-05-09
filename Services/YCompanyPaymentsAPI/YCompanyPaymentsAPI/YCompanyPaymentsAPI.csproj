@@ -12,11 +12,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Stripe.net" Version="44.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\YCompany.HealthChecks\YCompany.HealthChecks.csproj" />
+    <ProjectReference Include="..\YCompany.Payments.Domain\YCompany.Payments.Domain.csproj" />
+    <ProjectReference Include="..\YCompany.Payments.Services\YCompany.Payments.Services.csproj" />
   </ItemGroup>
 
 </Project>

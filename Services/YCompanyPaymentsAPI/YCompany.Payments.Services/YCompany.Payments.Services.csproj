@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Stripe.net" Version="44.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YCompany.Payments.Domain\YCompany.Payments.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
