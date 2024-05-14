@@ -8,7 +8,7 @@ using YCompanyPaymentsAPI.Models;
 namespace YCompanyThirdPartyAPI.Controllers
 {
     [ApiController]
-   // [Authorize]
+    //[Authorize]
     [Route("[controller]")]
     public class ThirdPartyController : ControllerBase
     {
