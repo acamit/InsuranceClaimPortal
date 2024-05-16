@@ -134,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "YCompanyWebApp"
+  "defaultProject": "YCompanyWebApp",
+  "cli": {
+    "analytics": false
+  }
 }
