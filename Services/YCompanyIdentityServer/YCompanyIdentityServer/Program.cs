@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System.Reflection;
 using YCompanyIdentityServer;
 using YCompanyIdentityServer.Data;
@@ -14,8 +15,9 @@ builder.Services.AddDbContext<ApplicationDbContext>((serviceProvider, dbContextO
         .UseSqlServer(serviceProvider.GetRequiredService<IConfiguration>().GetConnectionString("DefaultConnection")
             , sqlServerdbContextOptionsBuilder =>
             {
+            
                 sqlServerdbContextOptionsBuilder.MigrationsAssembly(typeof(Program).GetTypeInfo().Assembly.GetName().Name);
-            }
+}
         );
 });
 

@@ -22,7 +22,7 @@ builder.Services.AddDbContext<InsuranceContext>((serviceProvider, dbContextOptio
         .UseSqlServer(serviceProvider.GetRequiredService<IConfiguration>().GetConnectionString("DefaultConnection")
             , sqlServerdbContextOptionsBuilder =>
             {
-                sqlServerdbContextOptionsBuilder.MigrationsAssembly(typeof(Program).GetTypeInfo().Assembly.GetName().Name);
+                sqlServerdbContextOptionsBuilder.MigrationsAssembly("YCompanyWebApplication");
             }
         );
 });
