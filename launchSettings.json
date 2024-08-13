@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "ycompanywebapplication": "StartDebugging",
+        "ycompanyclaimsapi": "StartDebugging",
+        "ycompanycommunicationsapi": "StartDebugging",
+        "ycompanyidentityserver": "StartDebugging",
+        "ycompanypaymentsapi": "StartDebugging",
+        "ycompanyreportingapi": "StartDebugging",
+        "ycompanythirdpartyapi": "StartDebugging",
+        "ycompanyusermanagementapi": "StartDebugging",
+        "ycompanyvendorapi": "StartDebugging"
+      }
+    }
+  }
+}

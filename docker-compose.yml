@@ -1,0 +1,64 @@
+version: '3.4'
+
+services:
+  ycompanywebapplication:
+    image: ${DOCKER_REGISTRY-}ycompanywebapplication
+    build:
+      context: .
+      dockerfile: YCompanyWebApplication/Dockerfile
+
+  ycompanyclaimsapi:
+    image: ${DOCKER_REGISTRY-}ycompanyclaimsapi
+    build:
+      context: .
+      dockerfile: Services/YCompanyClaimsAPI/YCompanyClaimsAPI/Dockerfile
+
+
+  ycompanycommunicationsapi:
+    image: ${DOCKER_REGISTRY-}ycompanycommunicationsapi
+    build:
+      context: .
+      dockerfile: Services/YCompanyCommunicationsAPI/YCompanyCommunicationsAPI/Dockerfile
+
+
+  ycompanyidentityserver:
+    image: ${DOCKER_REGISTRY-}ycompanyidentityserver
+    build:
+      context: .
+      dockerfile: Services/YCompanyIdentityServer/YCompanyIdentityServer/Dockerfile
+
+
+  ycompanypaymentsapi:
+    image: ${DOCKER_REGISTRY-}ycompanypaymentsapi
+    build:
+      context: .
+      dockerfile: Services/YCompanyPaymentsAPI/YCompanyPaymentsAPI/Dockerfile
+
+
+  ycompanyreportingapi:
+    image: ${DOCKER_REGISTRY-}ycompanyreportingapi
+    build:
+      context: .
+      dockerfile: Services/YCompanyReportingAPI/YCompanyReportingAPI/Dockerfile
+
+
+  ycompanythirdpartyapi:
+    image: ${DOCKER_REGISTRY-}ycompanythirdpartyapi
+    build:
+      context: .
+      dockerfile: ThirdPartyAndSeed/YCompanyThirdPartyAPI/Dockerfile
+
+
+  ycompanyusermanagementapi:
+    image: ${DOCKER_REGISTRY-}ycompanyusermanagementapi
+    build:
+      context: .
+      dockerfile: Services/YCompanyUserManagementAPI/YCompanyUserManagementAPI/Dockerfile
+
+
+  ycompanyvendorapi:
+    image: ${DOCKER_REGISTRY-}ycompanyvendorapi
+    build:
+      context: .
+      dockerfile: Services/YCompanyVendorAPI/YCompanyVendorAPI/Dockerfile
+
